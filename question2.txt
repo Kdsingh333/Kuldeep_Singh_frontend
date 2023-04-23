@@ -1,0 +1,14 @@
+Q2.What problems / warnings are there with code?
+
+Ans :
+1.In the given code, it is recommended to replace "PropTypes.array(PropTypes.shapeOf({ text: PropTypes.string.isRequired }))" with "PropTypes.arrayOf(PropTypes.shape({ text: PropTypes.string.isRequired }))" as the first one is incorrect.
+
+2.Before mapping through the items array, it is advisable to perform a null check on the items array by using "items && items.map()" to prevent errors.
+
+3.To use useState, the variable that holds the state value should come after the function that sets the state value. Therefore, in "const [setSelectedIndex, selectedIndex] = useState();", setSelectedIndex and selectedIndex should be swapped.
+
+4.In "isSelected={selectedIndex}", the selectedIndex variable is of Number type, but the isSelected prop requires a boolean value. To resolve this, we can compare the selectedIndex with the current index in the map function and return true if they match, and false if they don't.
+
+5.When using map to generate a list of components, it is important to provide a unique key prop for each item to help React keep track of the components. In this case, we can provide the index as the key prop.
+
+6.In the code "onClick={onClickHandler(index)}", it is not possible to directly pass the handleClick function as the onClick handler. Instead, we can create an arrow function that calls the handleClick function with the appropriate index value and then pass the arrow function as the onClick handler.
